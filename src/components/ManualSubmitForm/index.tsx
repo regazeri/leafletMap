@@ -11,6 +11,11 @@ type FormValues = {
   longitude: number;
 };
 
+/** 
+ * @description validation for lat and lng inputs
+ * @param lat:valid value between -90 to 90
+ * @param lng:valid value between -180 to 180
+*/
 export const Schema = Yup.object().shape({
   latitude: Yup.number().min(-90).max(90).required('This field is required'),
   longitude: Yup.number().min(-180).max(180).required('This field is required'),
@@ -31,11 +36,14 @@ export const LocationSubmitForm = () => {
       setLatLng({ lat: values.latitude, lng: values.longitude });
     },
   });
+  //fetch api after click
   useEffect(() => {
     if (latLng.lat !== null && latLng.lng !== null) {
       refetch();
     }
   }, [latLng]);
+
+    //store data in state
   useEffect(() => {
     if (data && !isLoading && !isRefetching) {
       const elevation = data.results[0].elevation;

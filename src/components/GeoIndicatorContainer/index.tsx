@@ -3,7 +3,10 @@ import { Box } from '@mui/material';
 
 import { CustomCard } from '../CostumComponents';
 import { ILocation, useStore } from '@root/store/store';
-import { DEFAULT_MESSAGE } from '@root/common/constant';
+
+/** 
+ * @description component is container for wrapping GeoLocation card
+*/
 
 const style = {
   root: { display: 'flex', flexDirection: 'column', backgroundColor: '#113d61', minHeight: '100vh', overflow: 'auto' },
